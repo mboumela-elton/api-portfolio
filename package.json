@@ -1,0 +1,15 @@
+{
+  "name": "api-portfolio",
+  "version": "1.0.0",
+  "description": "submit form",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/write-file.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
