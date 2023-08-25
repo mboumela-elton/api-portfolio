@@ -14,14 +14,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.send('API running now')
+  res.send('API running')
 })
 
 app.post('/api/save-data', (req, res) => {
   const { name, email, message } = req.body;
   const data = { name, email, message };
 
-  fs.readFile('./file/data.json', 'utf-8', (err, jsonString) => {
+  fs.readFile('./public/data.json', 'utf-8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.status(500).send('Error reading file');
@@ -35,7 +35,7 @@ app.post('/api/save-data', (req, res) => {
 
     dataArr.push(data);
 
-    fs.writeFile('./file/data.json', JSON.stringify(dataArr), (err) => {
+    fs.writeFile('./public/data.json', JSON.stringify(dataArr), (err) => {
       if (err) {
         console.error(err);
         res.status(500).send('Error writing file');
@@ -49,7 +49,7 @@ app.post('/api/save-data', (req, res) => {
 });
 
 app.get('/api/get-comment', (req, res) => {
-  fs.readFile('./file/data.json', 'utf-8', (err, jsonString) => {
+  fs.readFile('./public/data.json', 'utf-8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.status(500).send('Error reading file');
