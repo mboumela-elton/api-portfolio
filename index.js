@@ -21,7 +21,7 @@ app.post('/api/save-data', (req, res) => {
   const { name, email, message } = req.body;
   const data = { name, email, message };
 
-  fs.readFile('./public/data.json', 'utf-8', (err, jsonString) => {
+  fs.readFile('./data.json', 'utf-8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.status(500).send('Error reading file');
@@ -35,7 +35,7 @@ app.post('/api/save-data', (req, res) => {
 
     dataArr.push(data);
 
-    fs.writeFile('./public/data.json', JSON.stringify(dataArr), (err) => {
+    fs.writeFile('./data.json', JSON.stringify(dataArr), (err) => {
       if (err) {
         console.error(err);
         res.status(500).send('Error writing file');
