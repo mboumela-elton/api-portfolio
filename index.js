@@ -49,7 +49,7 @@ app.post('/api/save-data', (req, res) => {
 });
 
 app.get('/api/get-comment', (req, res) => {
-  fs.readFile('./public/data.json', 'utf-8', (err, jsonString) => {
+  fs.readFile('./data.json', 'utf-8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.status(500).send('Error reading file');
